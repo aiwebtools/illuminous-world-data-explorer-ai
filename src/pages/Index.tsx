@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
@@ -9,10 +9,25 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FaqSection from "@/components/sections/FaqSection";
 import LegalSection from "@/components/sections/LegalSection";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
-  // This state is no longer used directly but kept for potential future functionality
   const [isPlaying] = useState(true);
+  const isMobile = useIsMobile();
+  
+  // Optimize for mobile - preload critical sections first
+  const [loadSecondaryContent, setLoadSecondaryContent] = useState(!isMobile);
+  
+  useEffect(() => {
+    if (!loadSecondaryContent) {
+      // Delay loading non-critical sections on mobile
+      const timer = setTimeout(() => {
+        setLoadSecondaryContent(true);
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [loadSecondaryContent]);
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
@@ -21,10 +36,16 @@ const Index = () => {
       <HeroSection />
       <VideoSection />
       <FeaturesSection />
-      <ProcessSection />
-      <TestimonialsSection />
-      <FaqSection />
-      <LegalSection />
+      
+      {/* Load these sections with a delay on mobile for better initial performance */}
+      {loadSecondaryContent && (
+        <>
+          <ProcessSection />
+          <TestimonialsSection />
+          <FaqSection />
+          <LegalSection />
+        </>
+      )}
 
       <Footer />
     </div>

@@ -17,8 +17,12 @@ const EarthGlobe = () => {
     
     let animationFrameId: number;
     let renderer: any;
+    let isDestroyed = false;
     
     script.onload = () => {
+      // Check if component is still mounted
+      if (isDestroyed || !containerRef.current) return;
+      
       // Check if THREE is available on window (it should be after script loads)
       if (!window.THREE) {
         console.error('THREE.js failed to load properly');
@@ -33,15 +37,20 @@ const EarthGlobe = () => {
       // Initialize the scene
       const scene = new window.THREE.Scene();
       const camera = new window.THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-      renderer = new window.THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer = new window.THREE.WebGLRenderer({ 
+        antialias: !isMobile, // Disable antialiasing on mobile
+        alpha: true,
+        powerPreference: 'high-performance' 
+      });
       
       renderer.setSize(width, height);
-      renderer.setPixelRatio(window.devicePixelRatio);
+      // Lower pixel ratio on mobile for better performance
+      renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : window.devicePixelRatio);
       container.innerHTML = '';
       container.appendChild(renderer.domElement);
       
-      // Create Earth
-      const earthGeometry = new window.THREE.SphereGeometry(5, 32, 32);
+      // Create Earth with appropriate detail level based on device
+      const earthGeometry = new window.THREE.SphereGeometry(5, isMobile ? 24 : 32, isMobile ? 24 : 32);
       
       // Create Earth texture loader
       const textureLoader = new window.THREE.TextureLoader();
@@ -67,8 +76,9 @@ const EarthGlobe = () => {
       // Position camera
       camera.position.z = 10;
       
-      // Glow effect (atmosphere)
-      const glowGeometry = new window.THREE.SphereGeometry(5.2, 32, 32);
+      // Glow effect (atmosphere) - simplified on mobile
+      const glowDetail = isMobile ? 24 : 32;
+      const glowGeometry = new window.THREE.SphereGeometry(5.2, glowDetail, glowDetail);
       const glowMaterial = new window.THREE.ShaderMaterial({
         uniforms: {},
         vertexShader: `
@@ -93,12 +103,17 @@ const EarthGlobe = () => {
       const glowMesh = new window.THREE.Mesh(glowGeometry, glowMaterial);
       scene.add(glowMesh);
       
+      // Animation with lower rotation speed on mobile to save power
+      const rotationSpeed = isMobile ? 0.001 : 0.002;
+      
       // Animation
       const animate = () => {
+        if (isDestroyed) return;
+        
         animationFrameId = requestAnimationFrame(animate);
         
-        earth.rotation.y += 0.002;
-        glowMesh.rotation.y += 0.002;
+        earth.rotation.y += rotationSpeed;
+        glowMesh.rotation.y += rotationSpeed;
         
         renderer.render(scene, camera);
       };
@@ -107,7 +122,7 @@ const EarthGlobe = () => {
       
       // Handle resize
       const handleResize = () => {
-        if (!container) return;
+        if (!container || isDestroyed) return;
         
         const { clientWidth: width, clientHeight: height } = container;
         
@@ -131,6 +146,7 @@ const EarthGlobe = () => {
     };
     
     return () => {
+      isDestroyed = true;
       if (renderer && containerRef.current) {
         containerRef.current.removeChild(renderer.domElement);
       }
