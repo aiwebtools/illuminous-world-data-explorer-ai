@@ -1,19 +1,33 @@
+
 import { useIsMobile } from "@/hooks/use-mobile";
+
 const VideoSection = () => {
   const isMobile = useIsMobile();
-  return <section className="py-8 md:py-24 px-4 md:px-6 bg-black/50">
+  
+  return (
+    <section className="py-8 md:py-24 px-4 md:px-6 bg-black/50">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Let Illuminous Predict The Unimaginable</h2>
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+          Let Illuminous Predict The Unimaginable
+        </h2>
         
         <div className="flex flex-col items-center">
           <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-blue-900/50 w-full">
-            <iframe src={`https://www.youtube.com/embed/Nd1Ui2-VLMU?autoplay=1&mute=0&controls=1&origin=${encodeURIComponent(window.location.origin)}&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1&vq=${isMobile ? 'hd720' : 'hd1080'}`} title="Illuminous World Data Prediction GPT" className="absolute inset-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            <iframe 
+              src={`https://www.youtube.com/embed/Nd1Ui2-VLMU?autoplay=1&mute=0&controls=1&origin=${encodeURIComponent(window.location.origin)}&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1&vq=${isMobile ? 'hd720' : 'hd1080'}`}
+              title="Illuminous World Data Prediction GPT"
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
           <p className="text-xs text-gray-400 mt-2 font-light tracking-wide">
             Illuminous World Data Explorer Anthem
           </p>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default VideoSection;
