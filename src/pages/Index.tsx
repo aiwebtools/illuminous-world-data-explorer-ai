@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Globe, Mail, Phone, ExternalLink, ChevronDown, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,12 +9,7 @@ import Footer from "@/components/Footer";
 import TestimonialCard from "@/components/TestimonialCard";
 
 const Index = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    // Auto-play video when component mounts
-    setIsPlaying(true);
-  }, []);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const features = [
     {
@@ -156,7 +150,7 @@ const Index = () => {
           
           <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-blue-900/50">
             <iframe 
-              src={`https://www.youtube.com/embed/Nd1Ui2-VLMU?autoplay=${isPlaying ? '1' : '0'}&mute=0&controls=1&origin=${window.location.origin}&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1&hd=1`}
+              src={`https://www.youtube.com/embed/Nd1Ui2-VLMU?autoplay=1&mute=0&controls=1&origin=${encodeURIComponent(window.location.origin)}&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1&vq=hd1080`}
               title="Illuminous World Data Prediction GPT"
               className="absolute inset-0 w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
