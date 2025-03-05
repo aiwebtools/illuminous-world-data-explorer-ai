@@ -1,21 +1,28 @@
 
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Globe, ExternalLink } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Footer = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <footer className="bg-black/50 border-t border-blue-900/30 py-12 px-6">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div>
-            <div className="flex items-center mb-4">
-              <Globe className="h-8 w-8 text-blue-400 mr-2" />
+            <div className="flex items-start gap-3 mb-5">
+              <Globe className={`text-blue-400 flex-shrink-0 ${isMobile ? 'h-7 w-7 mt-1' : 'h-10 w-10'}`} />
               <div>
-                <h2 className="text-xl font-semibold text-white">Illuminous World Data Exploration AI</h2>
-                <p className="text-xs text-muted-foreground">Presented by AiWebTools.Ai</p>
+                <h2 className={`font-semibold text-white leading-tight ${isMobile ? 'text-lg' : 'text-2xl'}`}>
+                  Illuminous World Data Exploration AI
+                </h2>
+                <p className="text-xs text-blue-300/90 mt-1">
+                  Presented by AiWebTools.Ai
+                </p>
               </div>
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-4 pl-0 md:pl-[52px]">
               A sophisticated AI assistant specializing in comprehensive analysis of real-world data and predictions.
             </p>
           </div>

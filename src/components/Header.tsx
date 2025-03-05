@@ -1,16 +1,19 @@
 
 import { Button } from "@/components/ui/button";
 import { Globe, ExternalLink } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Header = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <header className="fixed top-0 left-0 right-0 z-50 py-4 backdrop-blur-md bg-black/50 border-b border-blue-900/30">
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center">
-          <Globe className="h-8 w-8 text-blue-400 mr-2" />
+        <div className="flex items-center gap-2">
+          <Globe className="h-8 w-8 text-blue-400 mr-1" />
           <div className="hidden md:block">
-            <h1 className="text-xl font-semibold text-white">Illuminous World Data Exploration AI</h1>
-            <p className="text-xs text-muted-foreground">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">AiWebTools.Ai</a></p>
+            <h1 className="text-xl font-semibold text-white leading-tight">Illuminous World Data Exploration AI</h1>
+            <p className="text-xs text-blue-300/90">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">AiWebTools.Ai</a></p>
           </div>
         </div>
         
