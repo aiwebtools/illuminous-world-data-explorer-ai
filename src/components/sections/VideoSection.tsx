@@ -11,14 +11,19 @@ const VideoSection = () => {
           See Illuminous in Action
         </h2>
         
-        <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-blue-900/50">
-          <iframe 
-            src={`https://www.youtube.com/embed/Nd1Ui2-VLMU?autoplay=1&mute=0&controls=1&origin=${encodeURIComponent(window.location.origin)}&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1&vq=${isMobile ? 'hd720' : 'hd1080'}`}
-            title="Illuminous World Data Prediction GPT"
-            className="absolute inset-0 w-full h-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+        <div className="flex flex-col items-center">
+          <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-blue-900/50 w-full">
+            <iframe 
+              src={`https://www.youtube.com/embed/Nd1Ui2-VLMU?autoplay=1&mute=0&controls=1&origin=${encodeURIComponent(window.location.origin)}&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1&vq=${isMobile ? 'hd720' : 'hd1080'}`}
+              title="Illuminous World Data Prediction GPT"
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <p className="text-xs text-gray-400 mt-2 font-light tracking-wide">
+            Illuminous World Data Explorer Anthem
+          </p>
         </div>
       </div>
     </section>
