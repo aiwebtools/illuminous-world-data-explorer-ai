@@ -9,7 +9,7 @@ const Header = () => {
         <div className="flex items-center">
           <Globe className="h-8 w-8 text-blue-400 mr-2" />
           <div className="hidden md:block">
-            <h1 className="text-xl font-semibold text-white">Illuminous</h1>
+            <h1 className="text-xl font-semibold text-white">Illuminous World Data Exploration AI</h1>
             <p className="text-xs text-muted-foreground">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">AiWebTools.Ai</a></p>
           </div>
         </div>

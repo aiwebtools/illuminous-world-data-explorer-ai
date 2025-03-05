@@ -11,8 +11,8 @@ const Footer = () => {
             <div className="flex items-center mb-4">
               <Globe className="h-8 w-8 text-blue-400 mr-2" />
               <div>
-                <h2 className="text-xl font-semibold text-white">Illuminous</h2>
-                <p className="text-xs text-muted-foreground">Advanced World Data Explorer</p>
+                <h2 className="text-xl font-semibold text-white">Illuminous World Data Exploration AI</h2>
+                <p className="text-xs text-muted-foreground">Presented by AiWebTools.Ai</p>
               </div>
             </div>
             <p className="text-gray-400 mb-4">
