@@ -15,21 +15,30 @@ const EarthGlobe = () => {
     script.async = true;
     document.body.appendChild(script);
     
+    let animationFrameId: number;
+    let renderer: any;
+    
     script.onload = () => {
-      if (!window.THREE) return;
+      // Check if THREE is available on window (it should be after script loads)
+      if (!window.THREE) {
+        console.error('THREE.js failed to load properly');
+        return;
+      }
       
       const container = containerRef.current;
-      const { clientWidth: width, clientHeight: height } = container!;
+      if (!container) return;
+      
+      const { clientWidth: width, clientHeight: height } = container;
       
       // Initialize the scene
       const scene = new window.THREE.Scene();
       const camera = new window.THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-      const renderer = new window.THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer = new window.THREE.WebGLRenderer({ antialias: true, alpha: true });
       
       renderer.setSize(width, height);
       renderer.setPixelRatio(window.devicePixelRatio);
-      container!.innerHTML = '';
-      container!.appendChild(renderer.domElement);
+      container.innerHTML = '';
+      container.appendChild(renderer.domElement);
       
       // Create Earth
       const earthGeometry = new window.THREE.SphereGeometry(5, 32, 32);
@@ -86,7 +95,7 @@ const EarthGlobe = () => {
       
       // Animation
       const animate = () => {
-        requestAnimationFrame(animate);
+        animationFrameId = requestAnimationFrame(animate);
         
         earth.rotation.y += 0.002;
         glowMesh.rotation.y += 0.002;
@@ -109,13 +118,25 @@ const EarthGlobe = () => {
       
       window.addEventListener('resize', handleResize);
       
+      // Store the cleanup function in a variable we can access in the effect cleanup
       return () => {
         window.removeEventListener('resize', handleResize);
-        container!.removeChild(renderer.domElement);
+        if (container && renderer && renderer.domElement) {
+          container.removeChild(renderer.domElement);
+        }
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
       };
     };
     
     return () => {
+      if (renderer && containerRef.current) {
+        containerRef.current.removeChild(renderer.domElement);
+      }
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
       document.body.removeChild(script);
     };
   }, [isMobile]);
