@@ -9,11 +9,13 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FaqSection from "@/components/sections/FaqSection";
 import LegalSection from "@/components/sections/LegalSection";
+import DisclaimerPopup from "@/components/DisclaimerPopup";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
   const [isPlaying] = useState(true);
   const isMobile = useIsMobile();
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
   
   // Optimize for mobile - preload critical sections first
   const [loadSecondaryContent, setLoadSecondaryContent] = useState(!isMobile);
@@ -29,8 +31,26 @@ const Index = () => {
     }
   }, [loadSecondaryContent]);
 
+  useEffect(() => {
+    // Check if the user has already accepted the disclaimer
+    const hasAgreed = localStorage.getItem("illuminousDisclaimerAgreed");
+    
+    if (!hasAgreed) {
+      // If not, show the disclaimer
+      setShowDisclaimer(true);
+    }
+  }, []);
+
+  const handleAgreeDisclaimer = () => {
+    // Save agreement in localStorage
+    localStorage.setItem("illuminousDisclaimerAgreed", "true");
+    setShowDisclaimer(false);
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
+      {showDisclaimer && <DisclaimerPopup onAgree={handleAgreeDisclaimer} />}
+      
       <Header />
       
       <HeroSection />
