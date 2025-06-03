@@ -4,33 +4,33 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
-    title: "Data Analysis & Visualization",
-    description: "Meticulously analyze real-world data from diverse sources, compile detailed Python diagrams, explanations, and research analyses on any topic.",
+    title: "Free AI Data Analysis & Visualization",
+    description: "Meticulously analyze real-world data from diverse sources, compile detailed Python diagrams, explanations, and research analyses on any topic using our free AI tools.",
     icon: <CheckCircle className="w-6 h-6 text-primary" />
   },
   {
-    title: "Live Data & Predictions",
-    description: "Search the web for current world statistics, analyze historical trends, and provide correct accurate predictions based on data-driven insights.",
+    title: "Live Data & AI Predictions",
+    description: "Search the web for current world statistics, analyze historical trends, and provide correct accurate predictions based on data-driven AI insights.",
     icon: <CheckCircle className="w-6 h-6 text-primary" />
   },
   {
-    title: "Clear Communication",
-    description: "Clearly articulate & explain all information, findings, and diagrams, asking for specifics to resolve any ambiguities.",
+    title: "Clear AI Communication",
+    description: "Our AI tools clearly articulate & explain all information, findings, and diagrams, asking for specifics to resolve any ambiguities.",
     icon: <CheckCircle className="w-6 h-6 text-primary" />
   },
   {
-    title: "Data Authenticity",
-    description: "Never simulate or fabricate data. Strictly adhere to data-driven insights & verify calculation accuracy.",
+    title: "Authentic Data Processing",
+    description: "Never simulate or fabricate data. Our free AI web tools strictly adhere to data-driven insights & verify calculation accuracy.",
     icon: <CheckCircle className="w-6 h-6 text-primary" />
   },
   {
-    title: "Live World Data Expertise",
-    description: "Deep web search for all data needed to uncover key patterns, trends, and relationships through multi-source web search.",
+    title: "Live World Data AI Expertise",
+    description: "Deep web search capabilities for all data needed to uncover key patterns, trends, and relationships through advanced AI analysis.",
     icon: <CheckCircle className="w-6 h-6 text-primary" />
   },
   {
-    title: "Comprehensive Resource Analysis",
-    description: "Provide in-depth analysis of global resources, including but not limited to water, oil, minerals, or whatever you need.",
+    title: "Comprehensive AI Resource Analysis",
+    description: "Provide in-depth AI-powered analysis of global resources, including water, oil, minerals, and any data you need to explore.",
     icon: <CheckCircle className="w-6 h-6 text-primary" />
   }
 ];
@@ -41,10 +41,10 @@ const FeaturesSection = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-            How Illuminous Works
+            How Our Free AI Tools Work
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            A sophisticated AI assistant specializing in comprehensive analysis of real-world data
+            A sophisticated AI assistant specializing in comprehensive analysis of real-world data - completely free from AiWebTools.AI
           </p>
         </div>
         
@@ -58,6 +58,14 @@ const FeaturesSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        
+        {/* Additional SEO Content */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-semibold mb-4 text-white">Why Choose AiWebTools.AI for Free AI Tools?</h3>
+          <p className="text-gray-400 max-w-4xl mx-auto">
+            AiWebTools.AI provides the most advanced free AI tools available online. Our AI web tools are designed for professionals, researchers, and anyone needing reliable data analysis. Access cutting-edge artificial intelligence technology without any cost.
+          </p>
         </div>
       </div>
     </section>

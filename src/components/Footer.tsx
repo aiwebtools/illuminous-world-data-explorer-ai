@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-black/50 border-t border-blue-900/30 py-12 px-6">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-start gap-3 mb-5">
               <Globe className={`text-blue-400 flex-shrink-0 ${isMobile ? 'h-7 w-7 mt-1' : 'h-10 w-10'}`} />
@@ -18,17 +18,17 @@ const Footer = () => {
                   Illuminous World Data Exploration AI
                 </h2>
                 <p className="text-xs text-blue-300/90 mt-1">
-                  Presented by AiWebTools.Ai
+                  Free AI Tools by AiWebTools.AI
                 </p>
               </div>
             </div>
             <p className="text-gray-400 mb-4 pl-0 md:pl-[52px]">
-              A sophisticated AI assistant specializing in comprehensive analysis of real-world data and predictions.
+              Advanced free AI tools for data analysis and predictions. Part of the AiWebTools.AI suite of artificial intelligence solutions.
             </p>
           </div>
           
           <div>
-            <h3 className="text-lg font-medium text-white mb-4">Quick Links</h3>
+            <h3 className="text-lg font-medium text-white mb-4">Free AI Tools</h3>
             <ul className="space-y-2">
               <li>
                 <a 
@@ -38,7 +38,7 @@ const Footer = () => {
                   className="text-gray-400 hover:text-blue-400 transition-colors flex items-center"
                 >
                   <ExternalLink className="h-4 w-4 mr-2" />
-                  ACCESS ILLUMINOUS
+                  Data Analysis AI Tool
                 </a>
               </li>
               <li>
@@ -49,14 +49,24 @@ const Footer = () => {
                   className="text-gray-400 hover:text-blue-400 transition-colors flex items-center"
                 >
                   <ExternalLink className="h-4 w-4 mr-2" />
-                  MORE AI TOOLS
+                  More Free AI Tools
                 </a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-medium text-white mb-4">Legal & Contact</h3>
+            <h3 className="text-lg font-medium text-white mb-4">AI Web Tools Categories</h3>
+            <ul className="space-y-2 text-gray-400">
+              <li>Predictive Analytics AI</li>
+              <li>Data Visualization Tools</li>
+              <li>Machine Learning Tools</li>
+              <li>Business Intelligence AI</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-lg font-medium text-white mb-4">Contact & Legal</h3>
             <ul className="space-y-2">
               <li>
                 <a 
@@ -100,32 +110,42 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-blue-900/30 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            <a 
-              href="https://www.aiwebtools.ai" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-blue-400 transition-colors"
-            >
-              © 2025 AI WEB TOOLS LLC All rights reserved.
-            </a>
-          </p>
+        {/* SEO-Rich Bottom Section */}
+        <div className="border-t border-blue-900/30 pt-6">
+          <div className="text-center mb-4">
+            <h4 className="text-lg font-semibold text-white mb-2">AiWebTools.AI - Leading Free AI Tools Provider</h4>
+            <p className="text-sm text-gray-400 max-w-4xl mx-auto">
+              Discover the most comprehensive collection of free AI tools and AI web tools. AiWebTools.AI offers cutting-edge artificial intelligence solutions for data analysis, predictions, and business intelligence. Join thousands of professionals using our free AI tools daily.
+            </p>
+          </div>
           
-          <div>
-            <Button 
-              className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6"
-              size="sm"
-              asChild
-            >
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-500 text-sm mb-4 md:mb-0">
               <a 
                 href="https://www.aiwebtools.ai" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                className="hover:text-blue-400 transition-colors"
               >
-                More AI Tools <ExternalLink className="ml-1 h-3 w-3" />
+                © 2025 AI WEB TOOLS LLC - AiWebTools.AI - All rights reserved.
               </a>
-            </Button>
+            </p>
+            
+            <div>
+              <Button 
+                className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6"
+                size="sm"
+                asChild
+              >
+                <a 
+                  href="https://www.aiwebtools.ai" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Explore More AI Tools <ExternalLink className="ml-1 h-3 w-3" />
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
