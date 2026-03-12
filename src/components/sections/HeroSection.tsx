@@ -20,7 +20,7 @@ const HeroSection = () => {
             <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
               Illuminous💡WORLD DATA PREDICTION GPT💡
             </h1>
-            <p className="text-sm text-muted-foreground">Free AI Tools by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">AiWebTools.AI</a></p>
+            <p className="text-sm text-muted-foreground">Free AI Tools by <a href="https://aiwebtools.lovable.app/?via=aiwebtools" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">AiWebTools.AI</a></p>
           </div>
         </div>
         
