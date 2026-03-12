@@ -121,13 +121,13 @@ const Footer = () => {
           
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
-              <a 
-                href="https://www.aiwebtools.ai" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-blue-400 transition-colors"
-              >
-                © 2025 AI WEB TOOLS LLC - AiWebTools.AI - All rights reserved.
+                <a 
+                  href="https://aiwebtools.lovable.app/?via=aiwebtools" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  © 2025 AI WEB TOOLS LLC - AiWebTools.AI - All rights reserved.
               </a>
             </p>
             
